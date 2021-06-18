@@ -30,7 +30,7 @@ jobs:
         run: |
           git status
           git tag ${{ steps.get-tag-step.outputs.tag }}
-          git push origin ${{ steps.get-tag-step.outputs.tag }}
+          git push origin ${{ steps.get-tag-step.outputs.tag }} -f
       - name: Create release ${{ steps.get-tag-step.outputs.tag }}
         uses: actions/create-release@v1
         env:
