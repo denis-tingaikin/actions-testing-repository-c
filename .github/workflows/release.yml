@@ -26,6 +26,7 @@ jobs:
           branch=${{github.event.workflow_run.head_branch}}
           echo '::set-output name=tag::'${branch#release/}
         id: get-tag-step
+      - name: 
       - name: Create Release
         uses: actions/create-release@v1
         env:
