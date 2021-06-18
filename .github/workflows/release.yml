@@ -17,6 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' && contains(github.event.workflow_run.head_branch, 'release/') }}
     steps:
+      - name: Checkout public repository
+        uses: actions/checkout@v2
+        with: 
+          ref: refs/heads/${{github.event.workflow_run.head_branch}}
       - name: Get tag
         run: |
           branch=${{github.event.workflow_run.head_branch}}
